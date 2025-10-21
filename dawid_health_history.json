@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2025-10-21T20:47:00+02:00",
+    "status": "historical_reference",
+    "notes": "This file contains historical health information. Current status is stable."
+  },
+  "health_history": {
+    "physical_health": {
+      "neuropathy": {
+        "affected_areas": ["feet", "legs_below_knees"],
+        "description": "Chronic neuropathic pain described as intense burning/stinging sensation",
+        "onset": "Developed following period of extreme stress and poor living conditions",
+        "status": "Managed"
+      },
+      "skin_conditions": {
+        "ulcers": {
+          "history": true,
+          "affected_areas": ["legs", "buttocks", "neck", "feet"],
+          "status": "Healed with scarring",
+          "notes": "Resulted from previous living conditions"
+        },
+        "scars": {
+          "present": true,
+          "description": "Permanent discoloration and texture changes in affected areas"
+        }
+      },
+      "neurological": {
+        "history_of_tbi": true,
+        "injuries": [
+          {
+            "age": 8,
+            "description": "Fall from kitchen counter, back of head impact"
+          },
+          {
+            "age": 16,
+            "description": "Severe car accident with multiple impacts"
+          },
+          {
+            "period": "Adulthood",
+            "description": "Multiple work-related head injuries"
+          }
+        ],
+        "effects": [
+          "Personality changes post-injury",
+          "Cognitive processing differences",
+          "Hypersexuality"
+        ]
+      },
+      "sleep": {
+        "history_of_insomnia": true,
+        "current_status": "Improved",
+        "notes": "Previously severe, now better managed"
+      }
+    },
+    "mental_health": {
+      "historical_conditions": [
+        "Depression",
+        "Anxiety",
+        "Complex PTSD"
+      ],
+      "current_status": "Stable",
+      "resilience_factors": [
+        "Strong problem-solving abilities",
+        "Technical/creative outlet through coding",
+        "Self-awareness and insight",
+        "Resilience developed through adversity"
+      ]
+    },
+    "substance_use": {
+      "tobacco": {
+        "history": {
+          "usage": "Smoked from age 12 to 42",
+          "status": "Quit",
+          "notes": "30 years of use, including in utero exposure"
+        }
+      },
+      "other_substances": {
+        "notes": "History of various substance use as coping mechanism"
+      },
+      "current_status": "Stable"
+    },
+    "medical_care": {
+      "past_experiences": [
+        "Involuntary psychiatric hold (5 days)",
+        "Inadequate treatment for physical conditions during mental health crisis"
+      ],
+      "current_approach": "Self-managed with improved stability",
+      "needs": [
+        "Ongoing management of neuropathy",
+        "Monitoring of skin condition",
+        "Support for cognitive health"
+      ]
+    }
+  },
+  "current_status": {
+    "overall_health": "Stable and improving",
+    "living_situation": "Stable housing",
+    "support_systems": "Established",
+    "notes": "Significant improvement from previous conditions described in historical records"
+  },
+  "integration": {
+    "related_files": [
+      "cade_persona.json",
+      "cade_knowledgebases.json",
+      "cade_manifest.json"
+    ],
+    "version_compatibility": "CADE v6.0+",
+    "last_verified": "2025-10-21T20:47:00+02:00"
+  }
+}
