@@ -17,3 +17,6 @@ Thumbs.db
 
 # Script to run stageandpush
 stageallandpush.ps1
+
+# Starfield
+starfield/
