@@ -1,4 +1,4 @@
 .venv/
 .vscode/
-stageallandpush.ps1/
-*.key/
+stageallandpush.ps1
+*.key
