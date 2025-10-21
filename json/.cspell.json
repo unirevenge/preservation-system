@@ -101,7 +101,11 @@
     "upscaling",
     "vram",
     "vulkan",
-    "widescreen"
+    "widescreen",
+    "knowledgebases",
+    "persona",
+    "manifest",
+    "health_history"
   ],
   "flagWords": [],
   "dictionaries": [
