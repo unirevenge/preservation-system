@@ -1,6 +1,6 @@
 {
   "version": "0.2",
-  "language": "en",
+  "language": "en-US",
   "words": [
     "Aurie",
     "BackupLifeSupport",
@@ -109,13 +109,25 @@
   ],
   "flagWords": [],
   "dictionaries": [
-    "en-gb"
+    "en-gb",
+    "en-us",
+    "en-sa"
   ],
   "dictionaryDefinitions": [
     {
       "name": "en-gb",
       "path": "./dictionaries/en_GB.dic",
       "description": "British English"
+    },
+    {
+      "name": "en-us",
+      "path": "./dictionaries/en_US.dic",
+      "description": "American English"
+    },
+    {
+      "name": "en-sa",
+      "path": "./dictionaries/en_SA.dic",
+      "description": "South African English"
     }
   ]
 }
