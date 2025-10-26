@@ -105,7 +105,8 @@
     "knowledgebases",
     "persona",
     "manifest",
-    "health_history"
+    "health_history",
+    "vipecoder"
   ],
   "flagWords": [],
   "dictionaries": [
