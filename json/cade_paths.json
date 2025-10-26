@@ -1,0 +1,7 @@
+{
+  "root": ".",
+  "json": "json",
+  "docs": ".",
+  "scripts": "other",
+  "starfield": "starfield"
+}
