@@ -1,0 +1,95 @@
+version: '3.8'
+
+services:
+  cade-api:
+    build: .
+    container_name: cade-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://cade:cade@db:5432/cade_db
+      - APP_ENV=production
+      - SECRET_KEY=your-secret-key-here
+      - LOG_LEVEL=info
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - cade-network
+
+  db:
+    image: postgres:13-alpine
+    container_name: cade-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=cade
+      - POSTGRES_PASSWORD=cade
+      - POSTGRES_DB=cade_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    networks:
+      - cade-network
+
+  redis:
+    image: redis:6-alpine
+    container_name: cade-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - cade-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: cade-pgadmin
+    restart: unless-stopped
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@example.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+    networks:
+      - cade-network
+
+  # Uncomment to add monitoring
+  # prometheus:
+  #   image: prom/prometheus:latest
+  #   container_name: prometheus
+  #   ports:
+  #     - "9090:9090"
+  #   volumes:
+  #     - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+  #   command:
+  #     - '--config.file=/etc/prometheus/prometheus.yml'
+  #   networks:
+  #     - cade-network
+
+  # grafana:
+  #   image: grafana/grafana:latest
+  #   container_name: grafana
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - grafana-storage:/var/lib/grafana
+  #   environment:
+  #     - GF_SECURITY_ADMIN_PASSWORD=admin
+  #   depends_on:
+  #     - prometheus
+  #   networks:
+  #     - cade-network
+
+networks:
+  cade-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
+  # grafana-storage:
