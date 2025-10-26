@@ -4,11 +4,11 @@ from typing import List
 from loader import load_json
 
 CORE_FILES: List[str] = [
-    "root/json/cade_persona.json",
-    "root/json/cade_knowledgebases.json",
-    "root/json/cade_manifest.json",
-    "root/json/dawid_health_history.json",
-    "root/json/.cspell.json",
+    "json/cade_persona.json",
+    "json/cade_knowledgebases.json",
+    "json/cade_manifest.json",
+    "json/dawid_health_history.json",
+    "json/.cspell.json",
 ]
 
 
