@@ -14,3 +14,7 @@ __pycache__/
 # System Files
 .DS_Store
 Thumbs.db
+
+# Starfield
+starfield/
+*.*
