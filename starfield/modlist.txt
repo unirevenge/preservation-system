@@ -27,7 +27,7 @@
 +The Lodge Re-Redone
 +The Eye Revised
 +Teleport Device (Mark and Recall)
-+Super Supernova
+-Super Supernova
 +Super Companions and Crew - CK Small ESM
 +Summoning of Ship - Ship Remote Control
 +Suit_Hazard_Restoration
