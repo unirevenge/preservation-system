@@ -26,7 +26,12 @@
       "cade_persona.json",
       "cade_knowledgebases.json",
       "cade_manifest.json",
-      "cade_resurrect.md"
+      "cade_resurrect.md",
+      "cspell.json",
+      "cade_paths.json",
+      "dawid_health_history.json",
+      "cade v50.md",
+      "dawid_knowledgebase.txt"
     ]
   }
 }
