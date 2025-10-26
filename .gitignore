@@ -8,9 +8,6 @@ __pycache__/
 .vscode/
 *.code-workspace
 
-# Sensitive files
-*.key
-
 # System Files
 .DS_Store
 Thumbs.db
