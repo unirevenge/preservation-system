@@ -1,0 +1,32 @@
+player.modav DamageResist 500
+player.modav EnergyResist 500
+Player.modav electromagneticdamageresist 500
+player.setav ENV_Resist_Airborne 85
+player.setav ENV_Resist_Corrosive 85
+player.setav ENV_Resist_Radiation 85
+player.setav ENV_Resist_Thermal 85
+
+player.additem f 100000000
+player.additem 0000000F 50000
+player.additem 002B5597 1000
+player.setlevel 100
+player.setav carryweight 1000000
+player.setav health 5000
+player.setav oxygen 1000
+player.modav experience 1000
+player.modav speedmult 50
+Game.AddPerkPoints 50
+player.additem a 100
+player.setav 160030 50
+player.setav starpower 250
+player.setav starpowerratemult 100
+player.setav starpowerrecoverrate 1
+SetINISetting "fFPWorldFOV:Camera" "120"
+SetINISetting "fTPWorldFOV:Camera" "120"
+SetGS "fFlightCameraFOV:FlightCamera" "120"
+setforcespeechchallengealwayssucceed 1
+player.setav 3b0 1000
+player.setav 3b1 1000
+setgs fDiffMultHPByPCE 10
+setgs fDiffMultHPToPCE 0.1
+cgf "Debug.Notification" "Super Cheat Mode Activated!"
