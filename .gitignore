@@ -11,3 +11,7 @@ __pycache__/
 # System Files
 .DS_Store
 Thumbs.db
+
+# SSH Key
+other/
+github_ssh_key.key
