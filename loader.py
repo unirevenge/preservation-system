@@ -1,6 +1,8 @@
+import configparser
 import json
 import os
-from typing import Optional
+from pathlib import Path
+from typing import Any, Dict, Optional, Union
 
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -56,7 +58,14 @@ def load_text(name: str, errors: str = 'strict') -> str:
         return f.read()
 
 
-def load_json(name: str) -> Optional[dict]:
-    p = resolve_path(name)
-    with open(p, 'r', encoding='utf-8') as f:
+def load_json(name: str) -> Union[dict, list]:
+    """Load JSON data from a file."""
+    with open(resolve_path(name), 'r', encoding='utf-8') as f:
         return json.load(f)
+
+
+def load_ini(name: str) -> configparser.ConfigParser:
+    """Load INI configuration from a file."""
+    config = configparser.ConfigParser()
+    config.read(resolve_path(name))
+    return config
