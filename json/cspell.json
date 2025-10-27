@@ -1,0 +1,17 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "CADE",
+    "Cognitive",
+    "Artificial",
+    "Digital",
+    "Entity",
+    "knowledgebases",
+    "cspell",
+    "config",
+    "init",
+    "uvicorn",
+    "fastapi",
+    "pydantic",
+    
