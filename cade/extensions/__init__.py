@@ -31,4 +31,4 @@ def get_extension(name: str) -> Optional[Type[CadeExtension]]:
     return EXTENSIONS.get(name)
 
 
-__all__ = ["CadeExtension", "ExtensionInfo", "register_extension", "get_extension"]
+__all__ = ["CadeExtension", "ExtensionInfo", "get_extension", "register_extension"]

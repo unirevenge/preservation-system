@@ -30,4 +30,4 @@ def get_plugin(name: str) -> Optional[Type[CadePlugin]]:
     return PLUGINS.get(name)
 
 
-__all__ = ["CadePlugin", "PluginInfo", "register_plugin", "get_plugin"]
+__all__ = ["CadePlugin", "PluginInfo", "get_plugin", "register_plugin"]

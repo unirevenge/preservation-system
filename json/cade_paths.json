@@ -2,6 +2,6 @@
   "root": ".",
   "json": "json",
   "docs": ".",
-  "scripts": "other",
+  "scripts": "scripts",
   "starfield": "starfield"
 }

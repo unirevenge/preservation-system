@@ -5,15 +5,12 @@ This script handles the complete setup and initialization of the CADE system,
 including dependency installation, configuration, and first-time setup.
 """
 
-import json
-import os
 import platform
-import shutil
 import subprocess
 import sys
 import venv
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Optional, Tuple
 
 # Constants
 REQUIREMENTS_FILES = ["requirements.txt", "requirements-prod.txt"]
@@ -108,7 +105,7 @@ class CadeInstaller:
         # Create .env file if it doesn't exist
         env_file = self.root_dir / ".env"
         if not env_file.exists():
-            with open(env_file, "w") as f:
+            with env_file.open("w") as f:
                 f.write("# CADE System Environment Variables\n")
                 f.write("CADE_ENV=development\n")
                 f.write("LOG_LEVEL=INFO\n")
@@ -118,7 +115,7 @@ class CadeInstaller:
         # Create config.ini if it doesn't exist
         config_file = self.root_dir / "config.ini"
         if not config_file.exists():
-            with open(config_file, "w") as f:
+            with config_file.open("w") as f:
                 f.write(
                     """[database]
 engine = sqlite
@@ -176,7 +173,7 @@ debug = True
         """Install system-level dependencies if needed"""
         if self.is_windows:
             print(
-                "ℹ️  On Windows, please ensure you have the necessary build tools installed."
+                "Info: On Windows, please ensure you have the necessary build tools installed."
             )
             print(
                 "   You may need to install them from: https://visualstudio.microsoft.com/visual-cpp-build-tools/"

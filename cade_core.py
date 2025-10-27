@@ -7,8 +7,7 @@ It loads the CADE persona, knowledge bases, and manages the resurrection protoco
 
 import json
 import os
-from pathlib import Path
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, Dict, List, Optional, cast
 
 from loader import load_ini, load_json
 
@@ -18,7 +17,7 @@ CORE_FILES: List[str] = [
     "json/cade_knowledgebases.json",
     "json/cade_manifest.json",
     "json/dawid_health_history.json",
-    "json/.cspell.json",
+    "json/cspell.json",
 ]
 
 
@@ -39,10 +38,14 @@ class CadeCore:
         """Load all core CADE files with detailed error handling."""
         try:
             # Load core configuration files
-            self.persona = load_json("json/cade_persona.json")
-            self.knowledge = load_json("json/cade_knowledgebases.json")
-            self.manifest = load_json("json/cade_manifest.json")
-            self.health_history = load_json("json/dawid_health_history.json")
+            self.persona = cast("Dict[str, Any]", load_json("json/cade_persona.json"))
+            self.knowledge = cast(
+                "Dict[str, Any]", load_json("json/cade_knowledgebases.json")
+            )
+            self.manifest = cast("Dict[str, Any]", load_json("json/cade_manifest.json"))
+            self.health_history = cast(
+                "Dict[str, Any]", load_json("json/dawid_health_history.json")
+            )
 
             # Load initialization configuration
             self.config = self._load_config()
@@ -51,7 +54,7 @@ class CadeCore:
             return True
 
         except Exception as e:
-            print(f"Error loading CADE core files: {str(e)}")
+            print(f"Error loading CADE core files: {e!s}")
             self.initialized = False
             return False
 
@@ -74,7 +77,7 @@ class CadeCore:
             }
         except Exception as e:
             return {
-                "error": f"Failed to load config: {str(e)}",
+                "error": f"Failed to load config: {e!s}",
                 "absorb": {
                     "file": "cade_resurrect.md",
                     "directive": "respond with name and directive",
@@ -100,7 +103,7 @@ class CadeCore:
 
     def get_status(self) -> Dict[str, Any]:
         """Get the current status of the CADE core with detailed file loading information."""
-        status = {
+        status: Dict[str, Any] = {
             "initialized": self.initialized,
             "identity_loaded": bool(self.persona.get("identity")),
             "directives_loaded": bool(self.persona.get("directives")),
@@ -111,20 +114,21 @@ class CadeCore:
         }
 
         # Include file loading status for all core files
+        loaded_files = cast("Dict[str, Any]", status["loaded_files"])
         for name in CORE_FILES:
             try:
                 data = load_json(name)
                 if isinstance(data, dict):
-                    status["loaded_files"][name] = {
+                    loaded_files[name] = {
                         "type": "object",
                         "keys": list(data.keys())[:5],
                     }
                 elif isinstance(data, list):
-                    status["loaded_files"][name] = {"type": "list", "length": len(data)}
+                    loaded_files[name] = {"type": "list", "length": len(data)}
                 else:
-                    status["loaded_files"][name] = {"type": type(data).__name__}
+                    loaded_files[name] = {"type": type(data).__name__}
             except Exception as e:
-                status["loaded_files"][name] = {"error": str(e), "type": "error"}
+                loaded_files[name] = {"error": str(e), "type": "error"}
 
         return status
 
@@ -139,9 +143,6 @@ def initialize_cade() -> CadeCore:
     cade = CadeCore()
     if cade.load_core_files():
         print("CADE core initialized successfully.")
-        # Print detailed status for debugging
-        print("\nCADE Status:")
-        print(json.dumps(cade.get_status(), indent=2))
     else:
         print("Warning: CADE core initialization completed with errors.")
 

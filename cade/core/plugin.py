@@ -5,7 +5,7 @@ This module defines the base plugin interface and plugin management for CADE.
 """
 
 from dataclasses import dataclass
-from typing import Any, Dict, List, Optional, Type
+from typing import Any, Dict, List
 
 from ..models import BaseCadeModel
 

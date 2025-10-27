@@ -5,8 +5,6 @@ Provides a simplified interface for interacting with the CADE memory system.
 This module wraps the core functionality into easy-to-use functions.
 """
 
-from datetime import datetime
-from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from cade_memory import cade_memory

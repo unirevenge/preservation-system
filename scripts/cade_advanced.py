@@ -8,17 +8,11 @@ This module implements a comprehensive extension system for CADE with:
 4. Advanced knowledge management
 """
 
-import importlib
-import inspect
-import json
 import logging
-import os
-import sys
 import uuid
 from dataclasses import asdict, dataclass
 from datetime import datetime
-from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional, Type, TypeVar
+from typing import Any, Dict, List, Optional, Type, TypeVar
 
 # Configure logging
 logging.basicConfig(

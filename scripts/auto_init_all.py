@@ -11,7 +11,6 @@ Performs end-to-end initialization tasks:
 
 import json
 import logging
-import os
 import py_compile
 import sys
 from logging.handlers import RotatingFileHandler
@@ -19,7 +18,7 @@ from pathlib import Path
 from typing import Iterable, Set
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-INI_PY = REPO_ROOT / "ini-py"
+SCRIPTS_DIR = REPO_ROOT / "scripts"
 JSON_DIR = REPO_ROOT / "json"
 LOGS_DIR = REPO_ROOT / "logs"
 
@@ -132,7 +131,7 @@ def py_syntax_check(logger: logging.Logger) -> None:
             except Exception as e:
                 failures.append(f"{p.relative_to(REPO_ROOT)}: {e}")
 
-    for target in [REPO_ROOT / "cade", INI_PY]:
+    for target in [REPO_ROOT / "cade", SCRIPTS_DIR]:
         if target.exists():
             check_dir(target)
     if failures:
@@ -146,7 +145,7 @@ def print_command_hints(logger: logging.Logger) -> None:
     logger.info("Lint/format/type-check suggestions (run manually):")
     logger.info("  black .")
     logger.info("  ruff check --fix .  # or flake8 .")
-    logger.info("  mypy cade ini-py")
+    logger.info("  mypy cade scripts")
 
 
 def main() -> int:

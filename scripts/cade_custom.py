@@ -6,11 +6,9 @@ including adding new knowledge, creating custom directives, and integrating
 with external services.
 """
 
-import json
 import logging
-import os
 from datetime import datetime
-from typing import Any, Callable, Dict, List, Optional
+from typing import Any, Dict
 
 # Configure logging
 logging.basicConfig(
@@ -150,7 +148,7 @@ class CadeCustom:
         except Exception as e:
             return {
                 "status": "error",
-                "message": f"Error processing directive {directive}: {str(e)}",
+                "message": f"Error processing directive {directive}: {e!s}",
             }
 
 
