@@ -45,7 +45,12 @@ Issues = "https://github.com/yourusername/cade/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["cade", "cade.*"]
+include = ["cade", "cade.*", "scripts"]
+
+[project.scripts]
+cade-auto-init = "scripts.auto_init_all:main"
+cade-watch = "scripts.watchdog_runner:main"
+cade-init = "scripts.auto_init_cade:main"
 
 [tool.black]
 line-length = 88
@@ -79,6 +84,9 @@ extend-ignore = ["E203", "W503"]
 
 [tool.ruff]
 line-length = 88
+target-version = "py38"
+
+[tool.ruff.lint]
 select = [
     "E",   # pycodestyle errors
     "W",   # pycodestyle warnings
@@ -99,7 +107,11 @@ ignore = [
     "N801",  # Class name should use CapWords convention (we have some legacy code that doesn't follow this)
     "B008",  # FastAPI Depends in defaults
     "ARG001", # Unused arguments (e.g., FastAPI dependencies)
+    "PTH100", # prefer Path.resolve/Path over os.path.abspath
+    "PTH110", # prefer Path.exists
+    "PTH113", # prefer Path.is_file
+    "PTH118", # prefer Path / operator
+    "PTH120", # prefer Path.parent
     "PTH123", # prefer Path.open (we are migrating gradually)
     "RUF013", # implicit Optional (we're on 3.8-compatible style in some modules)
 ]
-target-version = "py38"

@@ -1,6 +1,7 @@
 import configparser
 import json
 import os
+from pathlib import Path
 from typing import Union
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -36,7 +37,7 @@ PATHS = _load_paths()
 
 
 def resolve_path(name: str) -> str:
-    if os.path.isabs(name):
+    if Path(name).is_absolute():
         return name
     # Strip explicit 'root/' prefix to map to repository root
     if name.startswith("root/") or name.startswith("root\\"):

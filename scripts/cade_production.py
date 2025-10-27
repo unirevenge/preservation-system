@@ -171,7 +171,8 @@ class CADEAPIClient:
 
     def __init__(self, base_url: str = "http://localhost:8000"):
         self.base_url = base_url
-        self.session = None
+        self.session: Optional[aiohttp.ClientSession] = None
+        self.token: Optional[str] = None
 
     async def __aenter__(self):
         self.session = aiohttp.ClientSession()
@@ -183,6 +184,7 @@ class CADEAPIClient:
 
     async def get_token(self, username: str, password: str) -> str:
         """Get an authentication token."""
+        assert self.session is not None
         async with self.session.post(
             f"{self.base_url}/token", data={"username": username, "password": password}
         ) as response:
@@ -190,14 +192,16 @@ class CADEAPIClient:
             return data["access_token"]
 
     async def create_knowledge(
-        self, key: str, content: str, metadata: dict = None
+        self, key: str, content: str, metadata: Optional[dict] = None
     ) -> dict:
         """Create a new knowledge base item."""
         item = {"key": key, "content": content, "metadata": metadata or {}}
+        assert self.session is not None
+        auth_header = {"Authorization": f"Bearer {self.token}"} if self.token else {}
         async with self.session.post(
             f"{self.base_url}/knowledge/",
             json=item,
-            headers={"Authorization": f"Bearer {self.token}"},
+            headers=auth_header,
         ) as response:
             return await response.json()
 

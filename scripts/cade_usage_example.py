@@ -21,20 +21,23 @@ def explore_knowledge_bases() -> Dict[str, Any]:
         return {"message": "No knowledge bases found", "status": "empty"}
 
     # Get basic information about knowledge bases
-    kb_info = {
+    kb_info: Dict[str, Any] = {
         "knowledge_bases": list(knowledge.keys()),
         "integrated_memory_size": len(knowledge.get("integrated_memory", [])),
         "sample_entries": {},
     }
 
     # Get sample entries from each knowledge base
+    sample_entries: Dict[str, Any] = {}
     for kb_name, kb_data in knowledge.items():
         if isinstance(kb_data, list) and kb_data:
-            kb_info["sample_entries"][kb_name] = kb_data[:3]  # First 3 entries
+            sample_entries[kb_name] = kb_data[:3]  # First 3 entries
         elif isinstance(kb_data, dict) and kb_data:
-            kb_info["sample_entries"][kb_name] = {
+            sample_entries[kb_name] = {
                 k: v for i, (k, v) in enumerate(kb_data.items()) if i < 3
             }
+
+    kb_info["sample_entries"] = sample_entries
 
     return kb_info
 
