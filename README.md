@@ -51,24 +51,20 @@ The initialization script will:
 
 ```text
 preservation-system/
-├── data/                  # Data storage
-├── docs/                  # Documentation
+├── cade/                  # Python package: core, models, plugins, utils
+├── scripts/               # Orchestrator, production server, init, watchdog
+│   ├── auto_init_all.py   # Auto init: cspell merge, syntax check, hints
+│   ├── auto_init_cade.py  # Environment/config checks and setup
+│   ├── cade_production.py # FastAPI production app (uvicorn entry)
+│   └── watchdog_runner.py # Filesystem monitoring to logs/
 ├── json/                  # JSON configuration and data files
 ├── logs/                  # Application logs
-├── plugins/               # Custom plugins
-├── src/                   # Source code
-│   ├── api/              # API endpoints
-│   ├── core/             # Core functionality
-│   ├── models/           # Database models
-│   └── services/         # Business logic
-├── tests/                # Test suite
-├── .env                  # Environment variables
-├── config.ini            # Application configuration
-├── init.bat              # Windows setup script
-├── init.sh               # Unix setup script
-├── init_cade.py          # Main initialization script
-├── requirements.txt      # Development dependencies
-└── requirements-prod.txt # Production dependencies
+├── tests/                 # Test suite
+├── init/                  # Platform init scripts (init.bat, init.sh)
+├── requirements.txt       # Development dependencies
+├── requirements-prod.txt  # Production dependencies
+├── pyproject.toml         # Project config, console scripts, tooling
+└── .github/workflows/     # CI pipeline (ruff, black, mypy, orchestrator)
 ```
 
 ## 🛠️ Development
@@ -87,13 +83,25 @@ preservation-system/
 source venv/bin/activate
 ```
 
-### Running the Development Server
+### Running the Development/Production Server
 
-```bash
-python -m cade_production
-```
+Options:
 
-The server will be available at `http://localhost:8000`
+- Console script (after install):
+
+  ```bash
+  cade-auto-init            # orchestrator (safe)
+  uvicorn scripts.cade_production:app --reload
+  ```
+
+- Direct module:
+
+  ```bash
+  python -m scripts.auto_init_all
+  uvicorn scripts.cade_production:app --reload
+  ```
+
+Server default: `http://localhost:8000`
 
 ### API Documentation
 
@@ -128,10 +136,10 @@ Once the server is running, you can access:
 
 2. Set environment variables in `.env` for production
 
-3. Run with a production WSGI server:
+3. Run with a production ASGI server:
 
    ```bash
-   uvicorn cade_production:app --host 0.0.0.0 --port 8000 --workers 4
+   uvicorn scripts.cade_production:app --host 0.0.0.0 --port 8000 --workers 4
    ```
 
 ## 🤖 Using the CADE System

@@ -79,6 +79,6 @@ class ExampleDirective(Directive):
     name = "example"
     description = "An example directive that echoes back the input"
 
-    async def _execute(self, text: str = "", **kwargs) -> str:
+    async def _execute(self, text: str = "", **_kwargs) -> str:
         """Echo back the input text."""
         return f"Echo: {text}"

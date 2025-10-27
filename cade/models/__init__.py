@@ -5,6 +5,7 @@ This package contains data models and schemas used throughout the CADE system.
 """
 
 from datetime import datetime
+from typing import Any, ClassVar, Dict
 
 from pydantic import BaseModel, Field
 
@@ -17,7 +18,7 @@ class BaseCadeModel(BaseModel):
     updated_at: str = Field(default_factory=lambda: str(datetime.utcnow().isoformat()))
 
     class Config:
-        json_encoders = {
+        json_encoders: ClassVar[Dict[str, Any]] = {
             "datetime": lambda v: v.isoformat() if hasattr(v, "isoformat") else str(v)
         }
         extra = "ignore"

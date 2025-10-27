@@ -205,7 +205,7 @@ class DatabasePlugin(CadePlugin):
                 return cls() if id else None
 
         # Add fields to the model
-        for field_name, field_type in fields.items():
+        for field_name, _field_type in fields.items():
             setattr(Model, field_name, None)
 
         self.models[name] = Model
@@ -331,12 +331,12 @@ def main():
         db.connect("sqlite:///cade.db")
 
         # Define a model
-        User = db.define_model(
+        user_model = db.define_model(
             "User", {"username": "str", "email": "str", "is_active": "bool"}
         )
 
         # Create and save a user
-        user = User()
+        user = user_model()
         user.username = "testuser"
         user.email = "test@example.com"
         user.is_active = True

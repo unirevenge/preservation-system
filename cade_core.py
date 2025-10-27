@@ -6,7 +6,7 @@ It loads the CADE persona, knowledge bases, and manages the resurrection protoco
 """
 
 import json
-import os
+from pathlib import Path
 from typing import Any, Dict, List, Optional, cast
 
 from loader import load_ini, load_json
@@ -26,7 +26,7 @@ class CadeCore:
 
     def __init__(self, root_dir: Optional[str] = None):
         """Initialize the CADE core with the given root directory."""
-        self.root_dir = root_dir or os.path.dirname(os.path.abspath(__file__))
+        self.root_dir = root_dir or str(Path(__file__).resolve().parent)
         self.persona: Dict[str, Any] = {}
         self.knowledge: Dict[str, Any] = {}
         self.manifest: Dict[str, Any] = {}

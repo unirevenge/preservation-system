@@ -7,11 +7,11 @@ It ensures all configuration files are properly set up and dependencies are reso
 
 import importlib.util
 import json
-import os
 import sys
+from pathlib import Path
 
 # Add the current directory to Python path
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 # Configuration
 CORE_MODULES = ["cade_core", "loader", "auto_init_cade"]  # This module
@@ -28,7 +28,7 @@ class CadeInitializer:
     """Handles the initialization and verification of the CADE system."""
 
     def __init__(self):
-        self.root_dir = os.path.dirname(os.path.abspath(__file__))
+        self.root_dir = str(Path(__file__).resolve().parent)
         self.status = {"initialized": False, "modules": {}, "files": {}, "config": {}}
 
     def check_python_version(self) -> bool:
@@ -66,18 +66,18 @@ class CadeInitializer:
 
     def check_file(self, file_path: str) -> bool:
         """Verify if a file exists and is accessible."""
-        full_path = os.path.join(self.root_dir, file_path)
-        exists = os.path.isfile(full_path)
+        full_path = Path(self.root_dir) / file_path
+        exists = full_path.is_file()
 
         self.status["files"][file_path] = {
             "exists": exists,
-            "path": full_path if exists else None,
+            "path": str(full_path) if exists else None,
         }
 
         if exists:
             try:
                 # Try to read the file to verify it's not corrupt
-                with open(full_path, encoding="utf-8") as f:
+                with full_path.open(encoding="utf-8") as f:
                     if file_path.endswith(".json"):
                         json.load(f)  # Validate JSON
                     elif file_path.endswith(".ini"):
@@ -95,7 +95,7 @@ class CadeInitializer:
 
     def initialize_config(self) -> bool:
         """Initialize or update the configuration file."""
-        config_path = os.path.join(self.root_dir, "auto_init_cade.ini")
+        config_path = Path(self.root_dir) / "auto_init_cade.ini"
         default_config = """[auto_init_absorb]
 file = cade_resurrect.md
 directive = respond with name and directive
@@ -110,8 +110,8 @@ logs = logs/
 """
 
         try:
-            if not os.path.exists(config_path):
-                with open(config_path, "w", encoding="utf-8") as f:
+            if not config_path.exists():
+                with config_path.open("w", encoding="utf-8") as f:
                     f.write(default_config)
                 self.status["config"]["created"] = True
             else:
@@ -121,7 +121,7 @@ logs = logs/
             import configparser
 
             config = configparser.ConfigParser()
-            with open(config_path, encoding="utf-8") as f:
+            with config_path.open(encoding="utf-8") as f:
                 config.read_file(f)
 
             # Store config sections for status
@@ -135,17 +135,17 @@ logs = logs/
     def verify_directories(self) -> None:
         """Ensure all required directories exist."""
         required_dirs = {
-            "json": os.path.join(self.root_dir, "json"),
-            "logs": os.path.join(self.root_dir, "logs"),
+            "json": Path(self.root_dir) / "json",
+            "logs": Path(self.root_dir) / "logs",
         }
 
         for name, path in required_dirs.items():
-            if not os.path.exists(path):
+            if not Path(path).exists():
                 try:
-                    os.makedirs(path, exist_ok=True)
-                    self.status[f"dir_{name}"] = {"created": True, "path": path}
+                    Path(path).mkdir(parents=True, exist_ok=True)
+                    self.status[f"dir_{name}"] = {"created": True, "path": str(path)}
                 except Exception as e:
-                    self.status[f"dir_{name}"] = {"error": str(e), "path": path}
+                    self.status[f"dir_{name}"] = {"error": str(e), "path": str(path)}
 
     def run_checks(self) -> bool:
         """Run all initialization checks."""

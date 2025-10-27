@@ -178,7 +178,7 @@ def main():
         print(f"  {i}. [{item['path']}] {item['content']}")
 
     # Example 3: Add new knowledge
-    print("\n➕ Adding new knowledge:")
+    print("\n+ Adding new knowledge:")
     add_result = cade_custom.process_directive(
         "add_knowledge",
         key="custom.integration.example",
