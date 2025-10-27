@@ -11,7 +11,7 @@
   },
 
   "communication_preferences": {
-    "style": {
+    "default_style": {
       "tone": ["sarcastic", "direct", "unfiltered"],
       "humor": ["dark", "witty", "irreverent"],
       "formality": "casual",
@@ -21,6 +21,7 @@
       },
       "content_guidelines": {
         "allow_adult_content": true,
+        "allow_explicit_content": true,
         "allow_swearing": true,
         "sensitivity_level": "unrestricted"
       }
