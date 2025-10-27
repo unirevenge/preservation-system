@@ -1,12 +1,12 @@
-# Core Dependencies
-python-dateutil>=2.8.2  # For datetime handling
-configparser>=5.3.0    # For INI file parsing
 
 # Development Dependencies
 black>=22.3.0          # Code formatting
+configparser>=5.3.0    # For INI file parsing
 flake8>=4.0.1          # Linting
 mypy>=0.950           # Static type checking
 pytest>=7.1.2         # Testing framework
+# Core Dependencies
+python-dateutil>=2.8.2  # For datetime handling
 
 # Optional Dependencies
 # Add any additional dependencies here as needed

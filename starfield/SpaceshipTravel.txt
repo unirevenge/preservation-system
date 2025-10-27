@@ -6,7 +6,7 @@ player.setav SpaceshipFuel 100
 player.setav ShieldMaxHealth 500
 player.setav shieldregenrate 3
 
-; Travel enhancements  
+; Travel enhancements
 SetGS fSpaceshipLootingDistanceDefault 1500
 SetGS fSpaceshipMaxDockingDistance 1500
 Setgs fMaxShipTransferDistance 1500

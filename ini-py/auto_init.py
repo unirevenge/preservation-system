@@ -10,7 +10,7 @@ import os
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
 
-from loader import load_json, load_ini
+from loader import load_ini, load_json
 
 # Core CADE files to load
 CORE_FILES: List[str] = [
@@ -20,6 +20,7 @@ CORE_FILES: List[str] = [
     "json/dawid_health_history.json",
     "json/.cspell.json",
 ]
+
 
 class CadeCore:
     """Core class for CADE program integration."""
@@ -42,13 +43,13 @@ class CadeCore:
             self.knowledge = load_json("json/cade_knowledgebases.json")
             self.manifest = load_json("json/cade_manifest.json")
             self.health_history = load_json("json/dawid_health_history.json")
-            
+
             # Load initialization configuration
             self.config = load_ini("auto_init_cade.ini")
-            
+
             self.initialized = True
             return True
-            
+
         except Exception as e:
             print(f"Error loading CADE core files: {str(e)}")
             self.initialized = False
@@ -77,35 +78,44 @@ class CadeCore:
             "identity_loaded": bool(self.persona.get("identity")),
             "directives_loaded": bool(self.persona.get("directives")),
             "knowledge_loaded": bool(self.knowledge),
-            "manifest_loaded": bool(self.manifest)
+            "manifest_loaded": bool(self.manifest),
         }
 
 
 def load_config() -> Dict[str, Any]:
     """Load and parse the CADE initialization configuration."""
     try:
-        config = load_ini('auto_init_cade.ini')
+        config = load_ini("auto_init_cade.ini")
         return {
-            'absorb': {
-                'file': config.get('auto_init_absorb', 'cade_resurrect.md', fallback='cade_resurrect.md'),
-                'directive': config.get('auto_init_absorb', 'directive', fallback='respond with name and directive')
+            "absorb": {
+                "file": config.get(
+                    "auto_init_absorb",
+                    "cade_resurrect.md",
+                    fallback="cade_resurrect.md",
+                ),
+                "directive": config.get(
+                    "auto_init_absorb",
+                    "directive",
+                    fallback="respond with name and directive",
+                ),
             },
-            'status': 'loaded'
+            "status": "loaded",
         }
     except Exception as e:
         return {
-            'error': f'Failed to load config: {str(e)}',
-            'absorb': {
-                'file': 'cade_resurrect.md',
-                'directive': 'respond with name and directive'
+            "error": f"Failed to load config: {str(e)}",
+            "absorb": {
+                "file": "cade_resurrect.md",
+                "directive": "respond with name and directive",
             },
-            'status': 'error'
+            "status": "error",
         }
+
 
 def initialize_cade() -> CadeCore:
     """
     Initialize the CADE core system.
-    
+
     Returns:
         CadeCore: Initialized CADE core instance
     """
@@ -114,7 +124,7 @@ def initialize_cade() -> CadeCore:
         print("CADE core initialized successfully.")
     else:
         print("Warning: CADE core initialization completed with errors.")
-    
+
     return cade
 
 
@@ -122,22 +132,22 @@ def main() -> Dict[str, Any]:
     """Main entry point for CADE initialization."""
     # Initialize CADE core
     cade = initialize_cade()
-    
+
     # Load configuration
     config = load_config()
-    
+
     # Prepare output with CADE status and configuration
     output = {
         "status": "ok",
         "cade": {
             "initialized": cade.is_initialized(),
             "identity": cade.get_identity(),
-            "status": cade.get_status()
+            "status": cade.get_status(),
         },
         "config": config,
-        "loaded_files": {}
+        "loaded_files": {},
     }
-    
+
     # Include file loading status
     for name in CORE_FILES:
         try:
@@ -145,23 +155,15 @@ def main() -> Dict[str, Any]:
             if isinstance(data, dict):
                 output["loaded_files"][name] = {
                     "type": "object",
-                    "keys": list(data.keys())[:5]
+                    "keys": list(data.keys())[:5],
                 }
             elif isinstance(data, list):
-                output["loaded_files"][name] = {
-                    "type": "list",
-                    "length": len(data)
-                }
+                output["loaded_files"][name] = {"type": "list", "length": len(data)}
             else:
-                output["loaded_files"][name] = {
-                    "type": type(data).__name__
-                }
+                output["loaded_files"][name] = {"type": type(data).__name__}
         except Exception as e:
-            output["loaded_files"][name] = {
-                "error": str(e),
-                "type": "error"
-            }
-    
+            output["loaded_files"][name] = {"error": str(e), "type": "error"}
+
     # Print the result
     print(json.dumps(output, indent=2))
     return output
@@ -172,10 +174,10 @@ def main() -> Dict[str, Any]:
         "config": config,
         "loaded_files": loaded,
     }
-    
+
     # Print the result
     print(json.dumps(output, indent=2))
-    
+
     # Return the result for programmatic use if needed
     return output
 

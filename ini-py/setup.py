@@ -1,9 +1,9 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
-with open('requirements.txt') as f:
+with open("requirements.txt") as f:
     requirements = f.read().splitlines()
 
-with open('requirements-prod.txt') as f:
+with open("requirements-prod.txt") as f:
     requirements_prod = f.read().splitlines()
 
 setup(
@@ -12,17 +12,17 @@ setup(
     packages=find_packages(),
     install_requires=requirements,
     extras_require={
-        'prod': requirements_prod,
+        "prod": requirements_prod,
     },
     entry_points={
-        'console_scripts': [
-            'cade-init=auto_init_cade:main',
-            'cade-run=cade_production:main',
+        "console_scripts": [
+            "cade-init=auto_init_cade:main",
+            "cade-run=cade_production:main",
         ],
     },
-    python_requires='>=3.8',
+    python_requires=">=3.8",
     include_package_data=True,
     package_data={
-        '': ['*.json', '*.ini', '*.md'],
+        "": ["*.json", "*.ini", "*.md"],
     },
 )

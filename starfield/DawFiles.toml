@@ -3,10 +3,10 @@
  Commands = [
 	; Mod compatibility notification
 	"cgf 'Debug.Notification' 'DawFiles Loaded - Mod Support Active'",
-	
+
 	; Core player stats
 	"player.setav health 800",
-	"player.setav oxygen 1000", 
+	"player.setav oxygen 1000",
 	"player.setav carryweight 50000",
 	"player.setav ShieldMaxHealth 500",
 	"player.setav ShieldMaxHealthMult 5",
@@ -16,83 +16,83 @@
 	"setgs fXPModBase 1.5",
 	"player.setav speedmult 150",
 	"SetGS fOxygenToCarbonDioxideMult 1.50000",
-	
+
 	; AI and NPC settings
 	"setgs fAIExclusiveGreetingTimer 300.000000",
-	"setgs fAIGreetingTimer 300.000000", 
+	"setgs fAIGreetingTimer 300.000000",
 	"setgs fAIHelloTimer 300.000000",
 	"setgs fPlayerGreetingSameActorTimer 300.000000",
 	"setgs fAIMinGreetingDistance 1.000000",
-	
+
 	; Combat and death settings
 	"setgs fXPDeathRewardHealthThreshold 0.001",
 	"setgs fNPCHealthLevelBonus 0",
 	"SetGS iAINumberDaysToStayAngryforCrime 1",
-	
+
 	; Boostpack enhancements
 	"SetINISetting 'bUsePressAndHoldControls:Boostpack' '1'",
 	"player.setav boostpackdraininitial 20",
-	"player.setav boostpackdrainsustained 0.25", 
+	"player.setav boostpackdrainsustained 0.25",
 	"player.setav BoostpackThrustInitial 375",
 	"player.setav BoostpackThrustSustained 85",
 	"player.setav BoostpackHorizontalPercentage 0.95",
-	
+
 	; Weapon and combat settings
 	"SetGS fAutoAimMaxDegrees 0.8",
 	"SetGS fAutoAimMaxDegrees3rdPerson 1.0",
 	"SetGS fAutoAimScreenPercentage 7.00",
 	"SetGS fGunPlayerRelaxedWaitTime 0.5",
 	"player.forceav WeapReloadSpeedMult 0.00",
-	"player.modav WeapReloadSpeedMult 0.75", 
+	"player.modav WeapReloadSpeedMult 0.75",
 	"player.forceav AimStability 1.00",
 	"player.modav AimStability 0.75",
-	
+
 	; Starborn powers
 	"Player.setav quantumessence 100",
-	
+
 	; Stealth and theft
 	"setgs fPickPocketMinChance 100",
 	"setgs fPickPocketMaxChance 100",
 	"SetGS fSneakVisualBaseValue -100.0000",
 	"SetGS fSneakDistanceAttenuationExponent 10.0000",
 	"SetGS fDetectionViewCone 170.0000",
-	
+
 	; Economy and vendors
-	"SetGS fVendorSellPriceMult 0.75", 
+	"SetGS fVendorSellPriceMult 0.75",
 	"SetGS iDaysToRespawnVendor 1",
-	
+
 	; Level scaling
 	"setgs uDefaultLevelZone01max 100",
-	"setgs uDefaultLevelZone02max 100", 
+	"setgs uDefaultLevelZone02max 100",
 	"setgs uDefaultLevelZone03max 100",
-	
+
 	; Ship systems
 	"player.setav PlayerIncomingShipDamageMult 0.081",
 	"SetGS fSpaceshipLootingDistanceDefault 1500",
 	"SetGS fSpaceshipMaxDockingDistance 1500",
-	"Setgs fMaxShipTransferDistance 1500", 
+	"Setgs fMaxShipTransferDistance 1500",
 	"setav spaceshippassengerslots 20",
-	"setav SpaceshipCrewRating 50",	
+	"setav SpaceshipCrewRating 50",
 	"setav SpaceshipCrewSlots 15",
 	"SetGS uSpaceshipMaximumOwnedSpaceships 5",
-	
+
 	; Scanner enhancements
 	"SetGS fHandScannerScanRange 250.0",
 	"SetGS iHandScannerAnimalCountBase 1",
-	"SetGS iHandScannerPlantsCountBase 1", 
+	"SetGS iHandScannerPlantsCountBase 1",
 	"SetGS fHandScannerBaseRange 500.0",
 	"SetGS fHandScannerMapMarkerMinRange 1000",
 	"SetGS fHandScannerSocialRange 150.0",
-	
+
 	; Performance and memory
 	"SetINISetting 'uLandingKeepBufferSize:Landing' '8'",
 	"setgs iAutoSaveCount 3",
 	"setgs iQuicksaveCount 3",
-	
+
 	; === INTEGRATED DAWCH FEATURES (BALANCED) ===
 	"player.modav DamageResist 100",
 	"player.modav EnergyResist 100",
-	"Player.modav electromagneticdamageresist 100", 
+	"Player.modav electromagneticdamageresist 100",
 	"player.setav ENV_Resist_Airborne 50",
 	"player.setav ENV_Resist_Corrosive 50",
 	"player.setav ENV_Resist_Radiation 50",
@@ -101,9 +101,9 @@
 	"Game.AddPerkPoints 5",
 	"player.additem a 50",
 	"player.setav starpower 250",
-	"player.setav starpowerratemult 50", 
+	"player.setav starpowerratemult 50",
 	"player.setav starpowerrecoverrate 0.5",
-	
+
 	; Call Sarah only if the mod is loaded (conditional execution)
 	"if (IsModLoaded 'MoveToMe.esm'); cgf 'MoveToMe.Sarah'; endif"
 ]
