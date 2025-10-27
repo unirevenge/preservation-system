@@ -5,12 +5,12 @@ This script handles the complete setup and initialization of the CADE system,
 including dependency installation, configuration, and first-time setup.
 """
 
+import json
 import os
-import sys
-import subprocess
 import platform
 import shutil
-import json
+import subprocess
+import sys
 import venv
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
@@ -20,6 +20,7 @@ REQUIREMENTS_FILES = ["requirements.txt", "requirements-prod.txt"]
 CONFIG_FILES = ["config.ini", ".env"]
 DATA_DIRS = ["data", "logs", "plugins"]
 
+
 class CadeInstaller:
     def __init__(self):
         self.root_dir = Path(__file__).parent.absolute()
@@ -27,11 +28,16 @@ class CadeInstaller:
         self.python_cmd = "python" + ("3" if not self.is_windows else "")
         self.pip_cmd = f"{self.python_cmd} -m pip"
         self.venv_dir = self.root_dir / "venv"
-        self.venv_python = str(self.venv_dir / ("Scripts\\python.exe" if self.is_windows else "bin/python3"))
+        self.venv_python = str(
+            self.venv_dir
+            / ("Scripts\\python.exe" if self.is_windows else "bin/python3")
+        )
         self.venv_pip = f"{self.venv_python} -m pip"
         self.use_venv = True
 
-    def run_command(self, cmd: str, cwd: Optional[Path] = None, shell: bool = True) -> Tuple[bool, str]:
+    def run_command(
+        self, cmd: str, cwd: Optional[Path] = None, shell: bool = True
+    ) -> Tuple[bool, str]:
         """Run a shell command and return (success, output)"""
         try:
             print(f"$ {cmd}")
@@ -41,7 +47,7 @@ class CadeInstaller:
                 shell=shell,
                 check=True,
                 text=True,
-                capture_output=True
+                capture_output=True,
             )
             return True, result.stdout
         except subprocess.CalledProcessError as e:
@@ -75,25 +81,25 @@ class CadeInstaller:
     def install_dependencies(self) -> bool:
         """Install Python dependencies"""
         pip_cmd = self.venv_pip if self.use_venv else self.pip_cmd
-        
+
         # Upgrade pip first
         success, output = self.run_command(f"{pip_cmd} install --upgrade pip")
         if not success:
             print(f"❌ Failed to upgrade pip: {output}")
             return False
-            
+
         # Install requirements
         for req_file in REQUIREMENTS_FILES:
             if not (self.root_dir / req_file).exists():
                 print(f"⚠️  {req_file} not found, skipping...")
                 continue
-                
+
             print(f"Installing dependencies from {req_file}...")
             success, output = self.run_command(f"{pip_cmd} install -r {req_file}")
             if not success:
                 print(f"❌ Failed to install dependencies from {req_file}: {output}")
                 return False
-                
+
         print("✅ All dependencies installed successfully")
         return True
 
@@ -108,18 +114,19 @@ class CadeInstaller:
                 f.write("LOG_LEVEL=INFO\n")
                 f.write("DATABASE_URL=sqlite:///data/cade.db\n")
             print("✅ Created .env file with default settings")
-        
+
         # Create config.ini if it doesn't exist
         config_file = self.root_dir / "config.ini"
         if not config_file.exists():
             with open(config_file, "w") as f:
-                f.write("""[database]
+                f.write(
+                    """[database]
 engine = sqlite
 name = cade
 host = localhost
-port = 
-username = 
-password = 
+port =
+username =
+password =
 
 [logging]
 level = INFO
@@ -131,9 +138,10 @@ backup_count = 5
 host = 0.0.0.0
 port = 8000
 debug = True
-""")
+"""
+                )
             print("✅ Created config.ini with default settings")
-            
+
         return True
 
     def setup_directories(self) -> bool:
@@ -152,28 +160,32 @@ debug = True
         """Run initial system checks"""
         if not self.check_python_version():
             return False
-            
+
         if not self.setup_virtualenv():
             print("⚠️  Continuing without virtual environment")
-            
+
         if not self.setup_directories():
             return False
-            
+
         if not self.setup_environment():
             return False
-            
+
         return True
 
     def install_system_dependencies(self) -> bool:
         """Install system-level dependencies if needed"""
         if self.is_windows:
-            print("ℹ️  On Windows, please ensure you have the necessary build tools installed.")
-            print("   You may need to install them from: https://visualstudio.microsoft.com/visual-cpp-build-tools/")
+            print(
+                "ℹ️  On Windows, please ensure you have the necessary build tools installed."
+            )
+            print(
+                "   You may need to install them from: https://visualstudio.microsoft.com/visual-cpp-build-tools/"
+            )
         else:
             print("Checking for system dependencies...")
             # Example for Debian/Ubuntu
             # self.run_command("sudo apt-get update && sudo apt-get install -y python3-dev python3-venv build-essential")
-            
+
         return True
 
     def run_database_migrations(self) -> bool:
@@ -190,7 +202,11 @@ debug = True
         print(f"1. Review the configuration in {self.root_dir}/config.ini")
         print(f"2. Edit environment variables in {self.root_dir}/.env if needed")
         print("3. Start the development server with:")
-        print(f"   {self.venv_python} -m cade_production" if self.use_venv else "   python -m cade_production")
+        print(
+            f"   {self.venv_python} -m cade_production"
+            if self.use_venv
+            else "   python -m cade_production"
+        )
         print("\nFor production deployment:")
         print("1. Update the .env file with production settings")
         print("2. Set up a production web server (e.g., gunicorn, uvicorn)")
@@ -199,26 +215,27 @@ debug = True
     def run(self) -> bool:
         """Run the complete setup process"""
         print("🚀 Starting CADE System Setup...\n")
-        
+
         try:
             if not self.run_initial_checks():
                 return False
-                
+
             if not self.install_system_dependencies():
                 return False
-                
+
             if not self.install_dependencies():
                 return False
-                
+
             if not self.run_database_migrations():
                 return False
-                
+
             self.print_success_message()
             return True
-            
+
         except Exception as e:
             print(f"\n❌ Setup failed: {e}")
             return False
+
 
 if __name__ == "__main__":
     installer = CadeInstaller()

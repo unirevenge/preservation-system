@@ -1,0 +1,56 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+    -   id: check-ast
+    -   id: check-merge-conflict
+    -   id: debug-statements
+    -   id: requirements-txt-fixer
+
+-   repo: https://github.com/psf/black
+    rev: 24.8.0
+    hooks:
+    -   id: black
+        language_version: python3
+
+-   repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+    -   id: isort
+        name: isort (python)
+
+-   repo: https://github.com/pycqa/flake8
+    rev: 7.1.1
+    hooks:
+    -   id: flake8
+        additional_dependencies: [flake8-bugbear]
+        args:
+          - --max-line-length=120
+          - --extend-ignore=E203,W503
+          - --select=E,W,B,B9
+        files: ^cade/
+        exclude: ^(ini-py/|loader\.py|info/|json/|starfield/|tests/|docs/|examples/|setup\.py)
+
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.11.2
+    hooks:
+    -   id: mypy
+        additional_dependencies: [types-requests, types-python-dateutil, types-PyYAML]
+        args:
+          - --ignore-missing-imports
+          - --install-types
+          - --non-interactive
+          - --follow-imports=skip
+          - --disable-error-code=assignment
+          - --disable-error-code=misc
+          - --disable-error-code=annotation-unchecked
+          - --disable-error-code=valid-type
+        files: ^cade/.*\.py$
+        exclude: ^(ini-py/|loader\.py|info/|json/|starfield/)
+
+default_language_version:
+  python: python3

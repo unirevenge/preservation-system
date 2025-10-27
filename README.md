@@ -159,9 +159,9 @@ Edit `config.ini` to customize the system behavior. Key sections:
 engine = sqlite  # or postgresql, mysql
 name = cade
 host = localhost
-port = 
-username = 
-password = 
+port =
+username =
+password =
 
 [logging]
 level = INFO
