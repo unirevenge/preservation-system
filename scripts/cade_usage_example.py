@@ -6,7 +6,7 @@ including knowledge base access and directive handling.
 """
 
 import json
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 from cade_core import cade
 

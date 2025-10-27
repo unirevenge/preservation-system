@@ -11,4 +11,4 @@ from .version import __version__
 # Initialize CADE when this package is imported
 cade = initialize_cade()
 
-__all__ = ["CadeCore", "cade", "initialize_cade", "main", "__version__"]
+__all__ = ["CadeCore", "__version__", "cade", "initialize_cade", "main"]

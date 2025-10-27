@@ -5,18 +5,12 @@ This module contains the main CADE core class that ties together all the compone
 """
 
 import asyncio
-import importlib
-import json
-import logging
-import sys
-from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional, Type, TypeVar, Union
+from typing import Any, Dict, Optional, TypeVar
 
-from ..models import BaseCadeModel
-from ..utils import load_json, logger, save_json
+from ..utils import load_json, logger
 from .directive import Directive, DirectiveResult
-from .extension import CadeExtension, ExtensionInfo
-from .plugin import CadePlugin, PluginInfo
+from .extension import CadeExtension
+from .plugin import CadePlugin
 
 # Type variables
 T = TypeVar("T")
@@ -122,7 +116,7 @@ class CadeCore:
             return result
         except Exception as e:
             self.logger.error(f"Error executing directive {name}: {e}", exc_info=True)
-            return DirectiveResult.error_result(f"Error executing directive: {str(e)}")
+            return DirectiveResult.error_result(f"Error executing directive: {e!s}")
 
     def register_plugin(self, plugin: CadePlugin) -> bool:
         """Register a plugin with the CADE core.

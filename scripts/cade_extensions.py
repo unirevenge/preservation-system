@@ -10,13 +10,13 @@ import logging
 import os
 import sys
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional
+from typing import Any, Callable, Dict, List
 
 # Add the current directory to Python path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 # Import CADE core
-from cade_core import CadeCore, cade
+from cade_core import cade
 
 # Set up logging
 logging.basicConfig(
@@ -32,7 +32,7 @@ class CadeExtensionManager:
 
     def __init__(self):
         self.extensions: Dict[str, Dict[str, Any]] = {}
-        self.custom_directives: Dict[str, Callable] = {}
+        self.custom_directives: Dict[str, Dict[str, Any]] = {}
         self.initialized = False
 
     def register_extension(
@@ -75,7 +75,7 @@ class CadeExtensionManager:
                 ext_data["status"] = "initialized"
                 logger.debug(f"Initialized extension: {ext_name}")
             except Exception as e:
-                ext_data["status"] = f"error: {str(e)}"
+                ext_data["status"] = f"error: {e!s}"
                 logger.error(f"Failed to initialize {ext_name}: {e}")
 
         self.initialized = True
@@ -109,7 +109,8 @@ class KnowledgeBaseManager:
     def load_knowledge(self, file_path: str) -> bool:
         """Load knowledge from a JSON file."""
         try:
-            with open(file_path, "r", encoding="utf-8") as f:
+            path = Path(file_path)
+            with path.open(encoding="utf-8") as f:
                 data = json.load(f)
                 self.knowledge_base.update(data)
             self.logger.info(f"Loaded knowledge from {file_path}")

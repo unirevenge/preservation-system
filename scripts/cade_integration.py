@@ -4,7 +4,7 @@ CADE System Integration
 This script demonstrates how to integrate and interact with the CADE core system.
 """
 
-from cade_core import CadeCore, cade
+from cade_core import cade
 
 
 def display_identity():

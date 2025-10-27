@@ -66,11 +66,11 @@ class CadeMemory:
         """Save all memory stores to disk."""
         try:
             # Save conversation history
-            with open(self.conversation_file, "w", encoding="utf-8") as f:
+            with self.conversation_file.open("w", encoding="utf-8") as f:
                 json.dump(self._conversation_history, f, indent=2)
 
             # Save context memory
-            with open(self.context_file, "w", encoding="utf-8") as f:
+            with self.context_file.open("w", encoding="utf-8") as f:
                 json.dump(self._context_memory, f, indent=2)
 
             return True
@@ -111,7 +111,7 @@ class CadeMemory:
         """Get a value from the context memory."""
         return self._context_memory.get(key, default)
 
-    def get_core_knowledge(self, key: str = None) -> Any:
+    def get_core_knowledge(self, key: Optional[str] = None) -> Any:
         """
         Get knowledge from the CADE core.
 

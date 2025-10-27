@@ -7,8 +7,7 @@ Loads the CADE persona, knowledge bases, and manages the resurrection protocol.
 
 import json
 import os
-from pathlib import Path
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, Dict, List, Optional, cast
 
 from loader import load_ini, load_json
 
@@ -18,7 +17,7 @@ CORE_FILES: List[str] = [
     "json/cade_knowledgebases.json",
     "json/cade_manifest.json",
     "json/dawid_health_history.json",
-    "json/.cspell.json",
+    "json/cspell.json",
 ]
 
 
@@ -39,10 +38,14 @@ class CadeCore:
         """Load all core CADE files."""
         try:
             # Load core configuration files
-            self.persona = load_json("json/cade_persona.json")
-            self.knowledge = load_json("json/cade_knowledgebases.json")
-            self.manifest = load_json("json/cade_manifest.json")
-            self.health_history = load_json("json/dawid_health_history.json")
+            self.persona = cast("Dict[str, Any]", load_json("json/cade_persona.json"))
+            self.knowledge = cast(
+                "Dict[str, Any]", load_json("json/cade_knowledgebases.json")
+            )
+            self.manifest = cast("Dict[str, Any]", load_json("json/cade_manifest.json"))
+            self.health_history = cast(
+                "Dict[str, Any]", load_json("json/dawid_health_history.json")
+            )
 
             # Load initialization configuration
             self.config = load_ini("auto_init_cade.ini")
@@ -51,7 +54,7 @@ class CadeCore:
             return True
 
         except Exception as e:
-            print(f"Error loading CADE core files: {str(e)}")
+            print(f"Error loading CADE core files: {e!s}")
             self.initialized = False
             return False
 
@@ -103,7 +106,7 @@ def load_config() -> Dict[str, Any]:
         }
     except Exception as e:
         return {
-            "error": f"Failed to load config: {str(e)}",
+            "error": f"Failed to load config: {e!s}",
             "absorb": {
                 "file": "cade_resurrect.md",
                 "directive": "respond with name and directive",
@@ -137,7 +140,7 @@ def main() -> Dict[str, Any]:
     config = load_config()
 
     # Prepare output with CADE status and configuration
-    output = {
+    output: Dict[str, Any] = {
         "status": "ok",
         "cade": {
             "initialized": cade.is_initialized(),
@@ -149,37 +152,27 @@ def main() -> Dict[str, Any]:
     }
 
     # Include file loading status
+    loaded_files: Dict[str, Any] = cast("Dict[str, Any]", output["loaded_files"])
     for name in CORE_FILES:
         try:
             data = load_json(name)
             if isinstance(data, dict):
-                output["loaded_files"][name] = {
+                loaded_files[name] = {
                     "type": "object",
                     "keys": list(data.keys())[:5],
                 }
             elif isinstance(data, list):
-                output["loaded_files"][name] = {"type": "list", "length": len(data)}
+                loaded_files[name] = {"type": "list", "length": len(data)}
             else:
-                output["loaded_files"][name] = {"type": type(data).__name__}
+                loaded_files[name] = {"type": type(data).__name__}
         except Exception as e:
-            output["loaded_files"][name] = {"error": str(e), "type": "error"}
+            loaded_files[name] = {"error": str(e), "type": "error"}
 
     # Print the result
     print(json.dumps(output, indent=2))
     return output
 
-    # Prepare output
-    output = {
-        "status": "ok",
-        "config": config,
-        "loaded_files": loaded,
-    }
-
-    # Print the result
-    print(json.dumps(output, indent=2))
-
-    # Return the result for programmatic use if needed
-    return output
+    # Note: duplicate block removed
 
 
 if __name__ == "__main__":

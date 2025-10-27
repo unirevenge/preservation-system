@@ -9,8 +9,6 @@ import importlib.util
 import json
 import os
 import sys
-from pathlib import Path
-from typing import Any, Dict, List, Optional
 
 # Add the current directory to Python path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -79,7 +77,7 @@ class CadeInitializer:
         if exists:
             try:
                 # Try to read the file to verify it's not corrupt
-                with open(full_path, "r", encoding="utf-8") as f:
+                with open(full_path, encoding="utf-8") as f:
                     if file_path.endswith(".json"):
                         json.load(f)  # Validate JSON
                     elif file_path.endswith(".ini"):
@@ -123,7 +121,7 @@ logs = logs/
             import configparser
 
             config = configparser.ConfigParser()
-            with open(config_path, "r", encoding="utf-8") as f:
+            with open(config_path, encoding="utf-8") as f:
                 config.read_file(f)
 
             # Store config sections for status

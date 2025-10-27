@@ -5,7 +5,7 @@ This module defines the base extension interface and extension management for CA
 """
 
 from dataclasses import dataclass
-from typing import Any, Callable, Dict, List, Optional, Type
+from typing import Any, Dict, List
 
 from ..models import BaseCadeModel
 

@@ -11,12 +11,12 @@ from .plugin import CadePlugin, PluginInfo
 
 __all__ = [
     "CadeCore",
-    "CadePlugin",
-    "PluginInfo",
     "CadeExtension",
-    "ExtensionInfo",
+    "CadePlugin",
     "Directive",
     "DirectiveResult",
+    "ExtensionInfo",
+    "PluginInfo",
     "initialize_cade",
     "main",
 ]

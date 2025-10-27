@@ -36,7 +36,7 @@ for directory in [DATA_DIR, CONFIG_DIR]:
 def load_json(file_path: Union[str, Path]) -> Union[Dict, List, None]:
     """Load JSON data from a file."""
     try:
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(file_path, encoding="utf-8") as f:
             return json.load(f)
     except (json.JSONDecodeError, FileNotFoundError) as e:
         logger.error(f"Error loading JSON from {file_path}: {e}")
@@ -49,17 +49,17 @@ def save_json(data: Any, file_path: Union[str, Path], **kwargs) -> bool:
         with open(file_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False, **kwargs)
         return True
-    except (TypeError, IOError) as e:
+    except (OSError, TypeError) as e:
         logger.error(f"Error saving JSON to {file_path}: {e}")
         return False
 
 
 # Export public API
 __all__ = [
-    "logger",
-    "PACKAGE_ROOT",
-    "DATA_DIR",
     "CONFIG_DIR",
+    "DATA_DIR",
+    "PACKAGE_ROOT",
     "load_json",
+    "logger",
     "save_json",
 ]

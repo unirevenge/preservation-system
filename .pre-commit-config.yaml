@@ -33,7 +33,7 @@ repos:
           - --extend-ignore=E203,W503
           - --select=E,W,B,B9
         files: ^cade/
-        exclude: ^(ini-py/|loader\.py|info/|json/|starfield/|tests/|docs/|examples/|setup\.py)
+        exclude: ^(scripts/|loader\.py|info/|json/|starfield/|tests/|docs/|examples/|setup\.py)
 
 -   repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.11.2
@@ -50,7 +50,7 @@ repos:
           - --disable-error-code=annotation-unchecked
           - --disable-error-code=valid-type
         files: ^cade/.*\.py$
-        exclude: ^(ini-py/|loader\.py|info/|json/|starfield/)
+        exclude: ^(scripts/|loader\.py|info/|json/|starfield/)
 
 default_language_version:
   python: python3

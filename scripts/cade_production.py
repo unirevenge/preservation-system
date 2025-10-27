@@ -8,21 +8,19 @@ This module implements production-ready features for the CADE system:
 """
 
 import asyncio
-import json
 import logging
 import os
-import sys
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
-from typing import Any, Awaitable, Callable, Dict, List, Optional
+from typing import Any, Dict, Optional
 
 import aiohttp
 import sqlalchemy
 import uvicorn
 import yaml
 from dotenv import load_dotenv
-from fastapi import Depends, FastAPI, HTTPException, status
+from fastapi import Depends, FastAPI, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from pydantic import BaseModel, Field
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
@@ -217,7 +215,7 @@ class ConfigManager:
         if not self.config_path.exists():
             return {}
 
-        with open(self.config_path, "r") as f:
+        with self.config_path.open("r") as f:
             return yaml.safe_load(f) or {}
 
     def get(self, key: str, default: Any = None) -> Any:

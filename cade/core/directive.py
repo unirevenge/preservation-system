@@ -4,20 +4,14 @@ CADE Directive System
 This module defines the directive interface and directive management for CADE.
 """
 
-from dataclasses import dataclass
-from typing import Any, Callable, Dict, Generic, List, Optional, Type, TypeVar
+from typing import Any, Dict, Generic, List, TypeVar
 
 from pydantic import BaseModel, Field
 
 from ..models import BaseCadeModel
 
 # Type variable for directive result
-try:
-    from typing import TypeVar
-
-    T = TypeVar("T")
-except ImportError:
-    T = Any
+T = TypeVar("T")
 
 
 class DirectiveResult(BaseModel):
@@ -71,7 +65,7 @@ class Directive(BaseCadeModel, Generic[T]):
                 "Directive executed successfully", result=result
             )
         except Exception as e:
-            return DirectiveResult.error_result(f"Error executing directive: {str(e)}")
+            return DirectiveResult.error_result(f"Error executing directive: {e!s}")
 
     async def _execute(self, **kwargs) -> Any:
         """Subclasses should implement this method to provide directive-specific logic."""

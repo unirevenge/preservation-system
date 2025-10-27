@@ -1,9 +1,11 @@
+from pathlib import Path
+
 from setuptools import find_packages, setup
 
-with open("requirements.txt") as f:
+with Path("requirements.txt").open() as f:
     requirements = f.read().splitlines()
 
-with open("requirements-prod.txt") as f:
+with Path("requirements-prod.txt").open() as f:
     requirements_prod = f.read().splitlines()
 
 setup(

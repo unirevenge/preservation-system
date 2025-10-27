@@ -57,13 +57,21 @@ profile = "black"
 line_length = 88
 
 [tool.mypy]
-python_version = "3.8"
+python_version = "3.11"
 warn_return_any = false
 warn_unused_configs = true
 disallow_untyped_defs = false
 check_untyped_defs = false
 no_implicit_reexport = true
 no_implicit_optional = false
+ignore_missing_imports = true
+disable_error_code = [
+    "assignment",
+    "misc",
+    "annotation-unchecked",
+    "valid-type",
+    "import-untyped",
+]
 
 [tool.flake8]
 max-line-length = 120
@@ -89,5 +97,9 @@ select = [
 ignore = [
     "E501",  # Line too long (handled by black)
     "N801",  # Class name should use CapWords convention (we have some legacy code that doesn't follow this)
+    "B008",  # FastAPI Depends in defaults
+    "ARG001", # Unused arguments (e.g., FastAPI dependencies)
+    "PTH123", # prefer Path.open (we are migrating gradually)
+    "RUF013", # implicit Optional (we're on 3.8-compatible style in some modules)
 ]
 target-version = "py38"
