@@ -4,9 +4,12 @@
 
 A sophisticated AI framework designed for cognitive processing, knowledge management, and autonomous operation.
 
+---
+
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Python 3.8 or higher
 - pip (Python package manager)
 - Git (for version control)
@@ -14,17 +17,21 @@ A sophisticated AI framework designed for cognitive processing, knowledge manage
 ### Installation
 
 #### Windows
+
 1. Open Command Prompt or PowerShell
 2. Navigate to the project directory
 3. Run the initialization script:
-   ```
+
+   ```batch
    init.bat
    ```
 
 #### Linux/macOS
+
 1. Open Terminal
 2. Navigate to the project directory
 3. Make the script executable and run it:
+
    ```bash
    chmod +x init.sh
    ./init.sh
@@ -33,6 +40,7 @@ A sophisticated AI framework designed for cognitive processing, knowledge manage
 ### First-Time Setup
 
 The initialization script will:
+
 1. Create a Python virtual environment
 2. Install all required dependencies
 3. Set up the configuration files
@@ -41,7 +49,7 @@ The initialization script will:
 
 ## 🏗️ Project Structure
 
-```
+```text
 preservation-system/
 ├── data/                  # Data storage
 ├── docs/                  # Documentation
@@ -68,11 +76,13 @@ preservation-system/
 ### Activate Virtual Environment
 
 #### Windows
-```
+
+```batch
 .\venv\Scripts\activate
 ```
 
 #### Linux/macOS
+
 ```bash
 source venv/bin/activate
 ```
@@ -88,6 +98,7 @@ The server will be available at `http://localhost:8000`
 ### API Documentation
 
 Once the server is running, you can access:
+
 - Interactive API docs: `http://localhost:8000/docs`
 - Alternative API docs: `http://localhost:8000/redoc`
 
@@ -96,11 +107,13 @@ Once the server is running, you can access:
 ### Using Docker (Recommended)
 
 1. Build the Docker image:
+
    ```bash
    docker build -t cade-system .
    ```
 
 2. Run the container:
+
    ```bash
    docker run -d -p 8000:8000 --name cade-api cade-system
    ```
@@ -108,6 +121,7 @@ Once the server is running, you can access:
 ### Manual Deployment
 
 1. Install production dependencies:
+
    ```bash
    pip install -r requirements-prod.txt
    ```
@@ -115,6 +129,7 @@ Once the server is running, you can access:
 2. Set environment variables in `.env` for production
 
 3. Run with a production WSGI server:
+
    ```bash
    uvicorn cade_production:app --host 0.0.0.0 --port 8000 --workers 4
    ```
@@ -124,11 +139,13 @@ Once the server is running, you can access:
 ### Basic Commands
 
 - Start the interactive shell:
+
   ```bash
   python -m cade_core
   ```
 
 - Run a specific module:
+
   ```bash
   python -m cade_custom
   ```
