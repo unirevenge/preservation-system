@@ -12,6 +12,7 @@ import json
 import logging
 import os
 import sys
+import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Awaitable, Callable, Dict, List, Optional
@@ -30,11 +31,16 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 # Load environment variables
 load_dotenv()
 
-# Configure logging
+# Ensure logs directory exists and configure logging
+logs_dir = Path("logs")
+logs_dir.mkdir(parents=True, exist_ok=True)
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    handlers=[logging.FileHandler("cade_production.log"), logging.StreamHandler()],
+    handlers=[
+        logging.FileHandler(str(logs_dir / "cade_production.log")),
+        logging.StreamHandler(),
+    ],
 )
 logger = logging.getLogger("CADE_Production")
 
@@ -92,7 +98,7 @@ class Token(BaseModel):
 
 
 class TokenData(BaseModel):
-    username: str | None = None
+    username: Optional[str] = None
 
 
 class UserCreate(BaseModel):
