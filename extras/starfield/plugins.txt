@@ -4,47 +4,46 @@
 *StarfieldCommunityPatch.esm
 *unofficial starfield patch.esm
 *unofficial shattered space patch.esm
-*Starvival - Immersive Survival Addon.esm
+*AdvancedTechnology.esm
+*Aurie_StayPut.esm
 *Daw_Starborne_Life_Part_react_supe.esm
 *MercuryPenthouse_FurnishedIsImproved.esm
+*Starvival - Immersive Survival Addon.esm
 *TheLodgeReRedone.esm
 *DarkStar_Manufacturing.esm
 *N12_EnergyShields.esm
 *The Eye Revised.esm
 *PlayerHomeMapMarkers.esm
-*SKKFastStartNewGame.esm
-*AdvancedTechnology.esm
-*Aurie_StayPut.esm
 *Aurie_UpgradedCompanions.esm
 *ShipTerminals.esm
-*ItemFilterFramework.esm
 *bb84_UsefulChronomarkWatch.esm
 *GV_BackupLifeSupport.esm
 *ShipVendorFramework.esm
+*AutoDoc.esm
 *RHKRomanceTopicControl.esm
-*Starvival - ScarcityDisabler.esm
 *Companions take ammo.esm
 *Aurie_LessAnnoyingTemples.esm
 *dawmod.esm
 *BakaREV8Hauler.esm
 *Aurie_StayPutShatteredSpace.esm
 *ImprovedCompanions.esm
-*SVF-ShatteredSpace-Patch.esm
-*Aurie_UpgradedCompanionsAnnounce.esm
-*Aurie_UpgradedCompanionsShatteredSpace.esm
 *AuriePatch_UpgradedCompanionsMissionControl.esm
-*AutoDoc.esm
+*SKKFastStartNewGame.esm
+*Starvival - ScarcityDisabler.esm
+*Aurie_UpgradedCompanionsAnnounce.esm
 *BetterFlashlight.esm
 *Better Food and Chems.esm
 *CompanionsConvoFix.esm
 *MayhemCrew.esm
 *CharacterCreationUnchainedPlus.esm
-*VisibleCompanionAffinity.esm
+*xatmosPerkUp.esm
+*SVF-ShatteredSpace-Patch.esm
 *Perks improve ADS accuracy.esm
 *Ship Power Fix.esm
 *Commander Extraordinaire.esm
 *CraftPrimers.esm
 *creweatsfood.esm
+*ItemFilterFramework.esm
 *Dank_LEO.esm
 *ECRemodel.esm
 *Hijak - Backup Life Support DSM Patch.esm
@@ -53,12 +52,12 @@
 *Easy UCSim.esm
 *EnvironmentalSeal.esm
 *i9_Neuroamp_Z.esm
+*Aurie_UpgradedCompanionsShatteredSpace.esm
 *ImprovedFollowerBehavior.esm
 *Inquisitor_BattlefieldMastery_Perk_Mod.esm
 *MoreBoostpackXplosions.esm
-*ItemFilterFramework_Lodge.esm
 *xatmosPerkUpXP.esm
-*xatmosNoClutter.esm
+*VisibleCompanionAffinity.esm
 *Inquisitor_Longer_WellRested_XP_Bonus.esm
 *Inquisitor_Parkour_Perk.esm
 *open_ship_doors.esm
@@ -72,10 +71,10 @@
 *SeamlessGravJump.esm
 *Ship Remote Control.esm
 *SpaceMining.esm
-*AutoLootAsteroids.esm
 *Daw_Shieldbreaker.esm
 *Sit To Add Ship.esm
 *SKKHeadshotAnyActor.esm
+*ItemFilterFramework_Lodge.esm
 *SP2_FactionRequisitionKiosks.esm
 *SmartDoc.esm
 *Alternate Vasco.esm
@@ -96,16 +95,17 @@
 *AvonTechDeployables.esm
 *SpaceshipLandingReloaded.esm
 *EnvironmentalSeal_DarkStar_patch.esm
-*ItemFilterFramework_DarkStarManufacturing.esm
 *VNLAPlus_Apparel.esm
-*xatmosPerkUp.esm
+*xatmosNoClutter.esm
 *UsefulBonuses.esm
 *VNLAPlus_ApparelFixes.esm
 *CallMyShip.esm
 *CrewSkillOverhaul.esm
+*ItemFilterFramework_DarkStarManufacturing.esm
 *ExtendedCockpitButton.esm
 *crafting_updated.esm
 *LinkedCompanionSuit.esm
 *MantisOutfit.esm
+*AutoLootAsteroids.esm
 *Starvival - SpaceshipsUseAmmo.esm
 *xoxBetterCraftedFoodBuffs.esm
