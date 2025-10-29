@@ -1,0 +1,9 @@
+player.removeallitems
+player.forceav carryweight 50000
+player.additem 0000000F 25000
+player.additem 002B5597 2000
+player.additem 0000000A 10
+player.additem 0000000B 10
+player.additem 0000000C 5
+player.additem 0000000D 3
+cgf "Debug.Notification" "Inventory Reset - Carry Weight: 50,000"

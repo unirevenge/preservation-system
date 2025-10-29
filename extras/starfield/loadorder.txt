@@ -14,23 +14,25 @@ unofficial starfield patch.esm
 unofficial shattered space patch.esm
 AdvancedTechnology.esm
 Aurie_StayPut.esm
+Starvival - Immersive Survival Addon.esm
+Aurie_UpgradedCompanions.esm
+ImprovedCompanions.esm
+SkillFixes - No Challenges.esm
+CharacterCreationUnchainedPlus.esm
+xatmosPerkUp.esm
 Daw_Starborne_Life_Part_react_supe.esm
 MercuryPenthouse_FurnishedIsImproved.esm
-Starvival - Immersive Survival Addon.esm
-xatmosNoClutter.esm
 TheLodgeReRedone.esm
+xatmosNoClutter.esm
 DarkStar_Manufacturing.esm
 N12_EnergyShields.esm
 The Eye Revised.esm
 PlayerHomeMapMarkers.esm
-Aurie_UpgradedCompanions.esm
-ImprovedCompanions.esm
-CharacterCreationUnchainedPlus.esm
-xatmosPerkUp.esm
+xatmosPerkUpXP.esm
 bb84_UsefulChronomarkWatch.esm
 BetterFlashlight.esm
 ShipVendorFramework.esm
-SkillFixes - No Challenges.esm
+Starvival - ScarcityDisabler.esm
 GV_BackupLifeSupport.esm
 Better Food and Chems.esm
 AutoDoc.esm
@@ -38,12 +40,10 @@ RHKRomanceTopicControl.esm
 Companions take ammo.esm
 Aurie_LessAnnoyingTemples.esm
 dawmod.esm
-xatmosPerkUpXP.esm
-Starvival - ScarcityDisabler.esm
+AuriePatch_UpgradedCompanionsMissionControl.esm
+ShipTerminals.esm
 BakaREV8Hauler.esm
 Aurie_StayPutShatteredSpace.esm
-ShipTerminals.esm
-AuriePatch_UpgradedCompanionsMissionControl.esm
 SKKFastStartNewGame.esm
 VisibleCompanionAffinity.esm
 Aurie_UpgradedCompanionsAnnounce.esm
@@ -76,36 +76,37 @@ N12_ES_DisablePlayerBloodDecal.esm
 PersonalAtmo_Soak.esm
 No Negative Affinity.esm
 ProperGravityWave.esm
+PXC_AmmoHud_Patch_DSM.esm
+PXC_AmmoHud.esm
 SeamlessGravJump.esm
-Ship Remote Control.esm
 Daw_Shieldbreaker.esm
+Ship Remote Control.esm
 Sit To Add Ship.esm
-SKKHeadshotAnyActor.esm
 ItemFilterFramework_Lodge.esm
-SP2_FactionRequisitionKiosks.esm
+SKKHeadshotAnyActor.esm
 SmartDoc.esm
 Alternate Vasco.esm
+SP2_FactionRequisitionKiosks.esm
 SP2_ImmersiveLandingRamps.esm
 SP2_ShowDateWhenWakingUp.esm
 SpaceMining.esm
 SSMod_MoreLegendaryEffects.esm
 Starfield_Eyewear_Z.esm
-Starvival - Trackers Alliance.esm
 Starvival - Ship Vendor Framework.esm
+Starvival - Trackers Alliance.esm
 SuitRegen.esm
 SuitWarnings.esm
 SVF-Starvival-Patch.esm
 Teleport Device.esm
-The Mandalorian.esm
 a6ExclusivClothes.esm
 Easier Companion Affinity.esm
 AvonTechDeployables.esm
-uc_vanguard.esm
+The Mandalorian.esm
 SpaceshipLandingReloaded.esm
 EnvironmentalSeal_DarkStar_patch.esm
-VNLAPlus_Apparel.esm
+uc_vanguard.esm
+xoxBetterCraftedFoodBuffs.esm
 UsefulBonuses.esm
-VNLAPlus_ApparelFixes.esm
 CallMyShip.esm
 CrewSkillOverhaul.esm
 ItemFilterFramework_DarkStarManufacturing.esm
@@ -114,5 +115,6 @@ crafting_updated.esm
 LinkedCompanionSuit.esm
 MantisOutfit.esm
 AutoLootAsteroids.esm
+VNLAPlus_Apparel.esm
+VNLAPlus_ApparelFixes.esm
 Starvival - SpaceshipsUseAmmo.esm
-xoxBetterCraftedFoodBuffs.esm
