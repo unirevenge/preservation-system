@@ -17,34 +17,38 @@ Aurie_StayPut.esm
 Daw_Starborne_Life_Part_react_supe.esm
 MercuryPenthouse_FurnishedIsImproved.esm
 Starvival - Immersive Survival Addon.esm
+xatmosNoClutter.esm
 TheLodgeReRedone.esm
 DarkStar_Manufacturing.esm
 N12_EnergyShields.esm
 The Eye Revised.esm
 PlayerHomeMapMarkers.esm
 Aurie_UpgradedCompanions.esm
-ShipTerminals.esm
+ImprovedCompanions.esm
+CharacterCreationUnchainedPlus.esm
+xatmosPerkUp.esm
 bb84_UsefulChronomarkWatch.esm
-GV_BackupLifeSupport.esm
+BetterFlashlight.esm
 ShipVendorFramework.esm
+SkillFixes - No Challenges.esm
+GV_BackupLifeSupport.esm
+Better Food and Chems.esm
 AutoDoc.esm
 RHKRomanceTopicControl.esm
 Companions take ammo.esm
 Aurie_LessAnnoyingTemples.esm
 dawmod.esm
+xatmosPerkUpXP.esm
+Starvival - ScarcityDisabler.esm
 BakaREV8Hauler.esm
 Aurie_StayPutShatteredSpace.esm
-ImprovedCompanions.esm
+ShipTerminals.esm
 AuriePatch_UpgradedCompanionsMissionControl.esm
 SKKFastStartNewGame.esm
-Starvival - ScarcityDisabler.esm
+VisibleCompanionAffinity.esm
 Aurie_UpgradedCompanionsAnnounce.esm
-BetterFlashlight.esm
-Better Food and Chems.esm
 CompanionsConvoFix.esm
 MayhemCrew.esm
-CharacterCreationUnchainedPlus.esm
-xatmosPerkUp.esm
 SVF-ShatteredSpace-Patch.esm
 Perks improve ADS accuracy.esm
 Ship Power Fix.esm
@@ -64,21 +68,16 @@ Aurie_UpgradedCompanionsShatteredSpace.esm
 ImprovedFollowerBehavior.esm
 Inquisitor_BattlefieldMastery_Perk_Mod.esm
 MoreBoostpackXplosions.esm
-xatmosPerkUpXP.esm
-VisibleCompanionAffinity.esm
 Inquisitor_Longer_WellRested_XP_Bonus.esm
 Inquisitor_Parkour_Perk.esm
 open_ship_doors.esm
-PXC_AmmoHud_Patch_DSM.esm
 MoreImmersiveLandingsTakeOffs.esm
 N12_ES_DisablePlayerBloodDecal.esm
 PersonalAtmo_Soak.esm
 No Negative Affinity.esm
 ProperGravityWave.esm
-PXC_AmmoHud.esm
 SeamlessGravJump.esm
 Ship Remote Control.esm
-SpaceMining.esm
 Daw_Shieldbreaker.esm
 Sit To Add Ship.esm
 SKKHeadshotAnyActor.esm
@@ -88,23 +87,23 @@ SmartDoc.esm
 Alternate Vasco.esm
 SP2_ImmersiveLandingRamps.esm
 SP2_ShowDateWhenWakingUp.esm
+SpaceMining.esm
 SSMod_MoreLegendaryEffects.esm
 Starfield_Eyewear_Z.esm
 Starvival - Trackers Alliance.esm
-SuitRegen.esm
 Starvival - Ship Vendor Framework.esm
+SuitRegen.esm
 SuitWarnings.esm
 SVF-Starvival-Patch.esm
 Teleport Device.esm
 The Mandalorian.esm
-uc_vanguard.esm
 a6ExclusivClothes.esm
 Easier Companion Affinity.esm
 AvonTechDeployables.esm
+uc_vanguard.esm
 SpaceshipLandingReloaded.esm
 EnvironmentalSeal_DarkStar_patch.esm
 VNLAPlus_Apparel.esm
-xatmosNoClutter.esm
 UsefulBonuses.esm
 VNLAPlus_ApparelFixes.esm
 CallMyShip.esm
