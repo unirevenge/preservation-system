@@ -1,35 +1,33 @@
 [[Event]]
  EventType = 'DataLoaded'
  Commands = [
-	; Mod compatibility notification
-	"cgf 'Debug.Notification' 'DawFiles Loaded - Mod Support Active'",
+	# === INITIALIZATION ===
+	"cgf 'Debug.Notification' 'DawFiles Optimized - All Systems Active'",
 
-	; Core player stats
-	"player.setav health 800",
+	# === CORE PLAYER STATS (BALANCED) ===
+	"player.setav health 1000",
 	"player.setav oxygen 1000",
 	"player.setav carryweight 50000",
 	"player.setav ShieldMaxHealth 500",
 	"player.setav ShieldMaxHealthMult 5",
 	"player.setav shieldregenrate 3",
-	"Setgs fJumpFallDamageMult 0",
 	"player.setav meleedamage 10",
-	"setgs fXPModBase 1.5",
 	"player.setav speedmult 150",
+
+	# === DAMAGE RESISTANCES (BALANCED) ===
+	"player.modav DamageResist 150",
+	"player.modav EnergyResist 150",
+	"player.modav electromagneticdamageresist 150",
+	"player.setav ENV_Resist_Airborne 65",
+	"player.setav ENV_Resist_Corrosive 65",
+	"player.setav ENV_Resist_Radiation 65",
+	"player.setav ENV_Resist_Thermal 65",
+
+	# === MOVEMENT & PHYSICS ===
+	"Setgs fJumpFallDamageMult 0",
 	"SetGS fOxygenToCarbonDioxideMult 1.50000",
 
-	; AI and NPC settings
-	"setgs fAIExclusiveGreetingTimer 300.000000",
-	"setgs fAIGreetingTimer 300.000000",
-	"setgs fAIHelloTimer 300.000000",
-	"setgs fPlayerGreetingSameActorTimer 300.000000",
-	"setgs fAIMinGreetingDistance 1.000000",
-
-	; Combat and death settings
-	"setgs fXPDeathRewardHealthThreshold 0.001",
-	"setgs fNPCHealthLevelBonus 0",
-	"SetGS iAINumberDaysToStayAngryforCrime 1",
-
-	; Boostpack enhancements
+	# === BOOSTPACK ENHANCEMENTS ===
 	"SetINISetting 'bUsePressAndHoldControls:Boostpack' '1'",
 	"player.setav boostpackdraininitial 20",
 	"player.setav boostpackdrainsustained 0.25",
@@ -37,7 +35,7 @@
 	"player.setav BoostpackThrustSustained 85",
 	"player.setav BoostpackHorizontalPercentage 0.95",
 
-	; Weapon and combat settings
+	# === WEAPON & COMBAT SETTINGS ===
 	"SetGS fAutoAimMaxDegrees 0.8",
 	"SetGS fAutoAimMaxDegrees3rdPerson 1.0",
 	"SetGS fAutoAimScreenPercentage 7.00",
@@ -47,27 +45,50 @@
 	"player.forceav AimStability 1.00",
 	"player.modav AimStability 0.75",
 
-	; Starborn powers
-	"Player.setav quantumessence 100",
+	# === STARBORN POWERS ===
+	"player.setav quantumessence 100",
+	"player.setav starpower 250",
+	"player.setav starpowerratemult 75",
+	"player.setav starpowerrecoverrate 0.75",
 
-	; Stealth and theft
+	# === STEALTH & THEFT ===
 	"setgs fPickPocketMinChance 100",
 	"setgs fPickPocketMaxChance 100",
 	"SetGS fSneakVisualBaseValue -100.0000",
 	"SetGS fSneakDistanceAttenuationExponent 10.0000",
 	"SetGS fDetectionViewCone 170.0000",
 
-	; Economy and vendors
+	# === ECONOMY & VENDORS ===
 	"SetGS fVendorSellPriceMult 0.75",
 	"SetGS iDaysToRespawnVendor 1",
 
-	; Level scaling
+	# === XP & PROGRESSION ===
+	"setgs fXPModBase 1.5",
+	"setgs fXPDeathRewardHealthThreshold 0.001",
+	"setgs fNPCHealthLevelBonus 0",
+
+	# === LEVEL SCALING ===
 	"setgs uDefaultLevelZone01max 100",
 	"setgs uDefaultLevelZone02max 100",
 	"setgs uDefaultLevelZone03max 100",
 
-	; Ship systems
+	# === AI & NPC BEHAVIOR ===
+	"setgs fAIExclusiveGreetingTimer 300.000000",
+	"setgs fAIGreetingTimer 300.000000",
+	"setgs fAIHelloTimer 300.000000",
+	"setgs fPlayerGreetingSameActorTimer 300.000000",
+	"setgs fAIMinGreetingDistance 1.000000",
+	"SetGS iAINumberDaysToStayAngryforCrime 1",
+
+	# === SHIP SYSTEMS ===
+	"player.setav SpaceshipFuel 100",
 	"player.setav PlayerIncomingShipDamageMult 0.081",
+	"player.setav SpaceshipMissileDamageMult 1.5",
+	"player.setav SpaceshipLaserDamageMult 1.5",
+	"player.setav SpaceshipBallisticDamageMult 1.5",
+	"player.setav SpaceshipParticleDamageMult 1.5",
+	"player.setav SpaceshipGravJumpFuelUseMult 0.5",
+	"SetGS fGravJumpTravelTimeMult 0.5",
 	"SetGS fSpaceshipLootingDistanceDefault 1500",
 	"SetGS fSpaceshipMaxDockingDistance 1500",
 	"Setgs fMaxShipTransferDistance 1500",
@@ -76,7 +97,7 @@
 	"setav SpaceshipCrewSlots 15",
 	"SetGS uSpaceshipMaximumOwnedSpaceships 5",
 
-	; Scanner enhancements
+	# === SCANNER ENHANCEMENTS ===
 	"SetGS fHandScannerScanRange 250.0",
 	"SetGS iHandScannerAnimalCountBase 1",
 	"SetGS iHandScannerPlantsCountBase 1",
@@ -84,26 +105,26 @@
 	"SetGS fHandScannerMapMarkerMinRange 1000",
 	"SetGS fHandScannerSocialRange 150.0",
 
-	; Performance and memory
+	# === PERFORMANCE & SAVES ===
 	"SetINISetting 'uLandingKeepBufferSize:Landing' '8'",
 	"setgs iAutoSaveCount 3",
 	"setgs iQuicksaveCount 3",
 
-	; === INTEGRATED DAWCH FEATURES (BALANCED) ===
-	"player.modav DamageResist 100",
-	"player.modav EnergyResist 100",
-	"Player.modav electromagneticdamageresist 100",
-	"player.setav ENV_Resist_Airborne 50",
-	"player.setav ENV_Resist_Corrosive 50",
-	"player.setav ENV_Resist_Radiation 50",
-	"player.setav ENV_Resist_Thermal 50",
-	"player.additem f 1000000",
-	"Game.AddPerkPoints 5",
-	"player.additem a 50",
-	"player.setav starpower 250",
-	"player.setav starpowerratemult 50",
-	"player.setav starpowerrecoverrate 0.5",
+	# === STARTING RESOURCES (BALANCED) ===
+	"player.additem f 2000000",
+	"player.additem 0000000F 25000",
+	"player.additem 002B5597 2000",
+	"player.additem a 75",
+	"Game.AddPerkPoints 10",
 
-	; Call Sarah only if the mod is loaded (conditional execution)
-	"if (IsModLoaded 'MoveToMe.esm'); cgf 'MoveToMe.Sarah'; endif"
+	# === FOV SETTINGS ===
+	"SetINISetting 'fFPWorldFOV:Camera' '120'",
+	"SetINISetting 'fTPWorldFOV:Camera' '120'",
+	"SetGS 'fFlightCameraFOV:FlightCamera' '120'",
+
+	# === SPEECH CHALLENGES ===
+	"setforcespeechchallengealwayssucceed 1",
+
+	# === FINAL NOTIFICATION ===
+	"cgf 'Debug.Notification' 'All Enhancements Active - Balanced Mode'"
 ]
