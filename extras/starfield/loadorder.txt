@@ -14,21 +14,20 @@ unofficial starfield patch.esm
 unofficial shattered space patch.esm
 AdvancedTechnology.esm
 Aurie_StayPut.esm
-Starvival - Immersive Survival Addon.esm
 Aurie_UpgradedCompanions.esm
 ImprovedCompanions.esm
 SkillFixes - No Challenges.esm
 CharacterCreationUnchainedPlus.esm
 xatmosPerkUp.esm
+Starvival - Immersive Survival Addon.esm
 Daw_Starborne_Life_Part_react_supe.esm
 MercuryPenthouse_FurnishedIsImproved.esm
 TheLodgeReRedone.esm
-xatmosNoClutter.esm
 DarkStar_Manufacturing.esm
 N12_EnergyShields.esm
 The Eye Revised.esm
-PlayerHomeMapMarkers.esm
 xatmosPerkUpXP.esm
+PlayerHomeMapMarkers.esm
 bb84_UsefulChronomarkWatch.esm
 BetterFlashlight.esm
 ShipVendorFramework.esm
@@ -105,7 +104,7 @@ The Mandalorian.esm
 SpaceshipLandingReloaded.esm
 EnvironmentalSeal_DarkStar_patch.esm
 uc_vanguard.esm
-xoxBetterCraftedFoodBuffs.esm
+xatmosNoClutter.esm
 UsefulBonuses.esm
 CallMyShip.esm
 CrewSkillOverhaul.esm
@@ -118,3 +117,4 @@ AutoLootAsteroids.esm
 VNLAPlus_Apparel.esm
 VNLAPlus_ApparelFixes.esm
 Starvival - SpaceshipsUseAmmo.esm
+xoxBetterCraftedFoodBuffs.esm
