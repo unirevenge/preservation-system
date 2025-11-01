@@ -28,7 +28,7 @@
 	"SetGS fOxygenToCarbonDioxideMult 1.50000",
 
 	# === BOOSTPACK ENHANCEMENTS ===
-	"SetINISetting 'bUsePressAndHoldControls:Boostpack' '1'",
+	// INI setting moved to StarfieldCustom.ini
 	"player.setav boostpackdraininitial 20",
 	"player.setav boostpackdrainsustained 0.25",
 	"player.setav BoostpackThrustInitial 375",
@@ -40,8 +40,8 @@
 	"SetGS fAutoAimMaxDegrees3rdPerson 1.0",
 	"SetGS fAutoAimScreenPercentage 7.00",
 	"SetGS fGunPlayerRelaxedWaitTime 0.5",
-	"player.forceav WeapReloadSpeedMult 0.00",
-	"player.modav WeapReloadSpeedMult 0.75",
+	// Combined redundant forceav/modav and removed the invalid 0.00 setting.
+	"player.forceav WeapReloadSpeedMult 0.75",
 	"player.forceav AimStability 1.00",
 	"player.modav AimStability 0.75",
 
@@ -80,14 +80,9 @@
 	"setgs fAIMinGreetingDistance 1.000000",
 	"SetGS iAINumberDaysToStayAngryforCrime 1",
 
-	# === SHIP SYSTEMS ===
-	"player.setav SpaceshipFuel 100",
+	# === SHIP SYSTEMS (Invalid AV commands removed) ===
 	"player.setav PlayerIncomingShipDamageMult 0.081",
-	"player.setav SpaceshipMissileDamageMult 1.5",
-	"player.setav SpaceshipLaserDamageMult 1.5",
-	"player.setav SpaceshipBallisticDamageMult 1.5",
-	"player.setav SpaceshipParticleDamageMult 1.5",
-	"player.setav SpaceshipGravJumpFuelUseMult 0.5",
+	// All ship weapon/fuel/grav jump multiplier AVs removed to fix log errors.
 	"SetGS fGravJumpTravelTimeMult 0.5",
 	"SetGS fSpaceshipLootingDistanceDefault 1500",
 	"SetGS fSpaceshipMaxDockingDistance 1500",
@@ -106,21 +101,19 @@
 	"SetGS fHandScannerSocialRange 150.0",
 
 	# === PERFORMANCE & SAVES ===
-	"SetINISetting 'uLandingKeepBufferSize:Landing' '8'",
+	// INI setting moved to StarfieldCustom.ini
 	"setgs iAutoSaveCount 3",
 	"setgs iQuicksaveCount 3",
 
 	# === STARTING RESOURCES (BALANCED) ===
-	"player.additem f 2000000",
+	"player.additem 0000000F 2000000", // Fixed shorthand 'f' to FormID '0000000F' (Credits)
 	"player.additem 0000000F 25000",
 	"player.additem 002B5597 2000",
-	"player.additem a 75",
-	"Game.AddPerkPoints 10",
+	"player.additem 0000000A 75", // Fixed shorthand 'a' to FormID '0000000A' (Digipicks)
+	"player.addperkpoint 10", // Fixed 'Game.AddPerkPoints' to 'player.addperkpoint'
 
 	# === FOV SETTINGS ===
-	"SetINISetting 'fFPWorldFOV:Camera' '120'",
-	"SetINISetting 'fTPWorldFOV:Camera' '120'",
-	"SetGS 'fFlightCameraFOV:FlightCamera' '120'",
+	// FOV settings moved to StarfieldCustom.ini
 
 	# === SPEECH CHALLENGES ===
 	"setforcespeechchallengealwayssucceed 1",
